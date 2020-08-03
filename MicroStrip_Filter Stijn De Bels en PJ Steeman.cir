@@ -1,0 +1,36 @@
+*--------------------------------------
+* INPUT FILE - MICROSTRIP FILTER
+*                                     -
+* Author: De Bels S. en Steeman P-J.  -
+* Date: 5 april 2018                  -
+*--------------------------------------
+
+*--------- INPUT SOURCE (Vin moet in commentaar bij stapsresponsie) --------------------------*
+*
+Vin 1 0 AC 1V
+*--------- MODELS for passive components ---------
+*
+*NL = L/lamda = (lamda/8)/lamda = 1/8
+
+T1 1 0 2 0 Z0=50OHM (F=1000MEGHZ (NL=0.125))	
+T2 2 0 3 0 Z0=50OHM (F=1000MEGHZ (NL=0.125))
+T3 3 0 4 0 Z0=50OHM (F=1000MEGHZ (NL=0.125))
+T4 4 0 5 0 Z0=50OHM (F=1000MEGHZ (NL=0.125))
+T5 5 0 6 0 Z0=50OHM (F=1000MEGHZ (NL=0.125))
+T6 6 0 7 0 Z0=50OHM (F=1000MEGHZ (NL=0.125))
+T7 7 0 8 0 Z0=50OHM (F=1000MEGHZ (NL=0.125))
+T8 8 0 9 0 Z0=50OHM (F=1000MEGHZ (NL=0.125))
+
+R1 9 0 100OHM
+
+*--------- ANALYSIS ------------------------------*
+*
+.AC DEC 1 1GHZ 1GHZ
+*
+*--------- RESULTS -------------------------------*
+*
+.PRINT AC V(1) V(2) V(3) V(4) V(5) V(6) V(7) V(8) V(9)
+.PRINT AC VP(1) VP(2) VP(3) VP(4) VP(5) VP(6) VP(7) VP(8) VP(9)
+.PRINT AC VR(1) VR(2) VR(3) VR(4) VR(5) VR(6) VR(7) VR(8) VR(9)
+ 
+.END

@@ -1,0 +1,48 @@
+
+**** 05/03/19 10:41:41 ****** PSpice Lite (October 2012) ****** ID# 10813 ****
+
+ *--------------------------------------
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+* INPUT FILE - MICROSTRIP FILTER
+*                                     -
+* Author: De Bels S. en Steeman P-J.  -
+* Date: 5 april 2018                  -
+*--------------------------------------
+
+*--------- INPUT SOURCE (Vin moet in commentaar bij stapsresponsie) --------------------------*
+*
+Vin 1 0 AC 1V
+*--------- MODELS for passive components ---------
+*
+*NL = L/lamda = (lamda/8)/lamda = 1/8
+
+R1      1       2       50OHM
+C1      2       0       7.52pF
+L1      2       3       22.64nH
+C2      3       0       13.35pF
+L2      3       4       25.04nH
+C3      4       0       13.35pF
+L3      4       5       22.64nH
+C4      5       0       7.52pF
+R2      5       0       50OHM
+
+*--------- ANALYSIS ------------------------------*
+*
+.AC DEC 1 1GHZ 1GHZ
+*
+*--------- RESULTS -------------------------------*
+*
+.PRINT AC V(5)/V(0)
+--------------$
+ERROR(ORPSIM-16296): Invalid Expression: Specify either current(I) or voltage(V).
+ 
+.END
+
